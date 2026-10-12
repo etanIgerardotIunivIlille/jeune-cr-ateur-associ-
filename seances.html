@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Séances gratuites — Jeune Créateur Associé</title>
+<meta name="description" content="Jeune Créateur Associé — Association loi 1901 à Attigny, Ardennes. Sensibilisation au numérique responsable et média local.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Outfit',system-ui,sans-serif;background:#fff;color:#1c1c1a;font-weight:300;line-height:1.6;overflow-x:hidden}
+
+:root{
+  --g:#3a6648;--gh:#2e5039;--gl:#e6eeea;
+  --nv:#182b45;--nvd:#101d2e;--nvdd:#0a1320;--nvb:rgba(255,255,255,.08);
+  --off:#f7f5f1;--ink:#1c1c1a;--mid:#6a6a5f;--bdr:#d8d3c8;--muted:#b8b3a8;
+  --amber:#b05318;--r:3px;
+  --px:clamp(1.4rem,6vw,5rem);--py:clamp(3rem,6vw,6rem)
+}
+
+/* BANNIÈRE */
+.ann-bar{background:var(--amber);color:#fff;padding:.65rem var(--px);display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.78rem;letter-spacing:.02em;position:relative;z-index:110}
+.ann-inner{display:flex;align-items:center;gap:.75rem;flex:1;min-width:0}
+.ann-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);flex-shrink:0;animation:pulse 2.2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.35)}}
+.ann-text strong{font-weight:600}
+.ann-close{background:none;border:none;color:rgba(255,255,255,.65);font-size:1.1rem;cursor:pointer;padding:.25rem .5rem;transition:color .2s;line-height:1;flex-shrink:0}
+.ann-close:hover{color:#fff}
+
+/* NAV */
+.nav-wrap{position:sticky;top:0;z-index:100}
+nav.main-nav{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;padding:0 var(--px);height:60px;gap:1rem}
+.logo{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.logo em{font-style:italic;font-weight:300;color:var(--g)}
+.nav-links{display:flex;list-style:none;align-items:center;gap:0}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);text-decoration:none;padding:.4rem .65rem;border-radius:var(--r);transition:color .2s,background .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--g);background:var(--gl)}
+.nav-links a.active{color:var(--g);font-weight:600;background:var(--gl)}
+.nav-right{display:flex;align-items:center;gap:.35rem;flex-shrink:0}
+.soc-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--bdr);border-radius:var(--r);color:var(--mid);text-decoration:none;transition:all .2s;flex-shrink:0}
+.soc-btn:hover{border-color:var(--g);color:var(--g);background:var(--gl)}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
+.hamburger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MENU MOBILE */
+.mob-nav{display:none;position:fixed;inset:0;top:60px;background:#fff;z-index:99;padding:1.5rem var(--px) 2rem;overflow-y:auto;border-top:1px solid var(--bdr)}
+.mob-nav.open{display:block}
+.mob-nav a{display:block;font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:1.35rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none;padding:.7rem 0;border-bottom:1px solid var(--bdr);transition:color .2s}
+.mob-nav a:last-of-type{border-bottom:none}
+.mob-nav a:hover{color:var(--g)}
+.mob-nav a.active{color:var(--g)}
+.mm-socials{display:flex;gap:.5rem;margin-top:1.5rem}
+
+/* LAYOUT */
+section{padding:var(--py) var(--px)}
+.divider{height:1px;background:var(--bdr);margin:0 var(--px)}
+.sec-hd{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.sec-num{font-family:'Fraunces',Georgia,serif;font-size:.7rem;font-weight:400;color:var(--muted);letter-spacing:.1em}
+.sec-title{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-.02em;line-height:1.1}
+
+/* PAGE HERO */
+.page-hero{background:var(--off);padding:clamp(3rem,6vw,5.5rem) var(--px) clamp(2rem,4vw,4rem);border-bottom:1px solid var(--bdr)}
+.page-hero .sec-num{display:block;margin-bottom:.7rem}
+.page-hero-title{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(2rem,5vw,3.8rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:.8rem}
+.page-hero-sub{font-size:.92rem;color:var(--mid);line-height:1.75;max-width:56ch}
+
+/* BOUTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',system-ui,sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;padding:.85em 1.9em;border:1.5px solid transparent;cursor:pointer;transition:all .2s;border-radius:var(--r);white-space:nowrap;line-height:1}
+.btn-g{background:var(--g);color:#fff;border-color:var(--g)}
+.btn-g:hover{background:var(--gh);border-color:var(--gh)}
+.btn-out{background:transparent;color:var(--ink);border-color:var(--bdr)}
+.btn-out:hover{border-color:var(--ink)}
+
+/* FOOTER */
+footer{background:var(--nvdd);border-top:1px solid rgba(255,255,255,.05)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:3rem;padding:3rem var(--px) 2.5rem}
+.fcol{display:flex;flex-direction:column}
+.fcol-title{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:1.1rem}
+.f-logo{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:rgba(255,255,255,.82);letter-spacing:-.01em;text-decoration:none;margin-bottom:.25rem;display:block;transition:color .2s}
+.f-logo:hover{color:#fff}
+.f-logo em{font-style:italic;font-weight:300;color:var(--g)}
+.f-sub{font-size:.7rem;color:rgba(255,255,255,.22);letter-spacing:.03em;margin-bottom:.9rem;display:block}
+.f-desc{font-size:.8rem;color:rgba(255,255,255,.32);line-height:1.75;margin-bottom:1.3rem}
+.f-socials{display:flex;flex-direction:column;gap:.4rem}
+.f-soc{display:inline-flex;align-items:center;gap:.55rem;font-size:.75rem;color:rgba(255,255,255,.32);text-decoration:none;padding:.3rem 0;transition:color .2s}
+.f-soc:hover{color:rgba(255,255,255,.78)}
+.f-nav{display:flex;flex-direction:column;gap:.55rem}
+.f-nav a{font-size:.8rem;color:rgba(255,255,255,.36);text-decoration:none;transition:color .2s;line-height:1.3}
+.f-nav a:hover{color:rgba(255,255,255,.8)}
+.f-contact-list{display:flex;flex-direction:column;gap:.6rem}
+.fci{display:flex;align-items:flex-start;gap:.55rem;font-size:.78rem;color:rgba(255,255,255,.36);text-decoration:none;line-height:1.45;transition:color .2s}
+a.fci:hover{color:rgba(255,255,255,.75)}
+.fci-icon{font-size:.88rem;flex-shrink:0;margin-top:.05rem}
+.f-join{margin-top:1.1rem;display:inline-flex;align-items:center;background:var(--g);color:#fff;text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.7em 1.3em;border-radius:var(--r);transition:background .2s;align-self:flex-start}
+.f-join:hover{background:var(--gh)}
+.foot-bot{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--px);border-top:1px solid rgba(255,255,255,.05);font-size:.68rem;color:rgba(255,255,255,.18);gap:1rem;flex-wrap:wrap}
+.foot-bot a{color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.foot-bot a:hover{color:rgba(255,255,255,.6)}
+
+/* BACK TO TOP */
+.back-top{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--g);color:#fff;border:none;border-radius:var(--r);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s,background .2s;z-index:80;box-shadow:0 4px 16px rgba(58,102,72,.35)}
+.back-top.visible{opacity:1;transform:translateY(0)}
+.back-top:hover{background:var(--gh)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .fcol:first-child{grid-column:1/-1}
+}
+@media(max-width:700px){
+  .nav-links,.nav-right .soc-btn{display:none}
+  .hamburger{display:flex}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bot{flex-direction:column;align-items:flex-start;gap:.4rem}
+  .back-top{bottom:1.25rem;right:1.25rem}
+}
+@media(max-width:480px){
+  .sec-title{font-size:1.7rem}
+  .page-hero-title{font-size:1.9rem}
+}
+
+
+#seances{background:#fff}
+.cal-note{display:inline-flex;align-items:center;gap:.5rem;font-size:.73rem;font-weight:500;color:var(--g);background:var(--gl);padding:.45em 1em;border-radius:var(--r);border:1px solid rgba(58,102,72,.15);margin-bottom:2rem}
+.seances-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem}
+.seance{background:var(--off);padding:1.8rem;border:1px solid var(--bdr);border-radius:var(--r);transition:box-shadow .25s,transform .25s}
+.seance:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-2px)}
+.s-date{font-size:.67rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--g);margin-bottom:.6rem}
+.seance h4{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1rem;letter-spacing:-.01em;margin-bottom:.5rem;line-height:1.3}
+.seance p{font-size:.85rem;color:var(--mid);line-height:1.7;margin-bottom:1rem}
+.s-meta{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:1rem}
+.s-meta span{font-size:.75rem;color:var(--mid)}
+.s-free{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g);border:1px solid var(--g);padding:.2em .6em;border-radius:var(--r)}
+.s-acts{display:flex;gap:.5rem;flex-wrap:wrap;padding-top:.9rem;border-top:1px solid var(--bdr)}
+.s-cal-btn{display:inline-flex;align-items:center;gap:.3rem;font-size:.68rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.5em .9em;border:1px solid var(--bdr);border-radius:var(--r);background:#fff;color:var(--mid);cursor:pointer;text-decoration:none;transition:all .2s;font-family:'Outfit',system-ui,sans-serif}
+.s-cal-btn:hover{border-color:var(--g);color:var(--g);background:var(--gl)}
+.rappel{background:var(--gl);border:1px solid rgba(58,102,72,.2);border-radius:var(--r);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+.rappel-lbl{display:block;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:.25rem}
+.rappel-txt{font-size:.88rem;color:var(--ink);line-height:1.5}
+.rappel-btns{display:flex;gap:.5rem;flex-wrap:wrap}
+.rp-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:.65em 1.2em;border-radius:var(--r);text-decoration:none;transition:all .2s;border:none;font-family:'Outfit',system-ui,sans-serif;cursor:pointer}
+.rp-gcal{background:var(--g);color:#fff}
+.rp-gcal:hover{background:var(--gh)}
+.rp-wa{background:#25d366;color:#fff}
+.rp-wa:hover{background:#1daa55}
+@media(max-width:700px){.seances-grid{grid-template-columns:1fr}.rappel{flex-direction:column}}
+
+</style>
+</head>
+<body>
+<div class="ann-bar" id="ann-bar">
+  <div class="ann-inner">
+    <span class="ann-dot"></span>
+    <span class="ann-text"><strong>Prochaine séance —</strong> Samedi 5 avril 2026 à 20h00 · TikTok / Live YouTube · Gratuit</span>
+  </div>
+  <button class="ann-close" onclick="document.getElementById('ann-bar').style.display='none'" aria-label="Fermer">✕</button>
+</div>
+<div class="nav-wrap">
+  <nav class="main-nav">
+    <a href="index.html" class="logo">Jeune Créateur <em>Associé</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="seances.html" class="active">Séances</a></li>
+      <li><a href="media.html">Média</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="bureau.html">Bureau</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mentions.html">Mentions</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://tiktok.com/@jca.of" target="_blank" rel="noopener" class="soc-btn" title="TikTok"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.28 8.28 0 0 0 4.84 1.54V7.04a4.85 4.85 0 0 1-1.07-.35z"/></svg></a>
+      <a href="https://youtube.com/@jca.of" target="_blank" rel="noopener" class="soc-btn" title="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.82 12l-6.07 3.52z"/></svg></a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" class="soc-btn" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</div>
+<nav class="mob-nav" id="mob-nav">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="seances.html" class="active" onclick="closeMenu()">Séances</a>
+  <a href="media.html" onclick="closeMenu()">Média</a>
+  <a href="articles.html" onclick="closeMenu()">Articles</a>
+  <a href="bureau.html" onclick="closeMenu()">Bureau</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="mentions.html" onclick="closeMenu()">Mentions légales</a>
+  <div class="mm-socials">
+    <a href="https://tiktok.com/@jca.of" target="_blank" rel="noopener" class="soc-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.28 8.28 0 0 0 4.84 1.54V7.04a4.85 4.85 0 0 1-1.07-.35z"/></svg></a>
+    <a href="https://youtube.com/@jca.of" target="_blank" rel="noopener" class="soc-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.82 12l-6.07 3.52z"/></svg></a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="soc-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <span class="sec-num">03</span>
+  <h1 class="page-hero-title">Séances gratuites</h1>
+  <p class="page-hero-sub">Les 2 premières séances sont offertes, puis 15 € pour l'année — sans inscription obligatoire</p>
+</div>
+
+<section id="seances">
+  <div class="cal-note">✦ Entrée offerte pour les 2 premières séances, puis 15 € pour l'année complète</div>
+  <div class="seances-grid">
+
+    <div class="seance"
+      data-gcal="https://calendar.google.com/calendar/render?action=TEMPLATE&text=S%C3%A9ance+JCA+%E2%80%94+Post+sur+les+r%C3%A9seaux&dates=20260405T180000Z%2F20260405T200000Z&details=Reconna%C3%AEtre+les+fake+news+et+prot%C3%A9ger+sa+vie+priv%C3%A9e.+Gratuit.&location=TikTok+%2F+Live+YouTube"
+      data-ical="BEGIN:VCALENDAR&#10;VERSION:2.0&#10;BEGIN:VEVENT&#10;DTSTART:20260405T180000Z&#10;DTEND:20260405T200000Z&#10;SUMMARY:Séance JCA — Post sur les réseaux&#10;DESCRIPTION:Fake news et vie privée. Gratuit.&#10;LOCATION:TikTok / Live YouTube&#10;END:VEVENT&#10;END:VCALENDAR">
+      <div class="s-date">Samedi 5 avril 2026</div>
+      <h4>Post sur les réseaux</h4>
+      <p>Reconnaître les fake news, arnaques et protéger sa vie privée en ligne.</p>
+      <div class="s-meta"><span>🕐 20h00</span><span>📍 TikTok / Live YouTube</span><span class="s-free">Gratuit</span></div>
+      <div class="s-acts">
+        <button class="s-cal-btn" onclick="addToGcal(this)">📅 Google Calendar</button>
+        <button class="s-cal-btn" onclick="addToIcal(this)">🍎 Apple / Outlook</button>
+      </div>
+    </div>
+
+    <!-- Copier ce bloc pour ajouter une séance :
+    <div class="seance"
+      data-gcal="URL_GOOGLE_CALENDAR"
+      data-ical="BEGIN:VCALENDAR&#10;...&#10;END:VCALENDAR">
+      <div class="s-date">Jour Mois Année</div>
+      <h4>Titre</h4>
+      <p>Description.</p>
+      <div class="s-meta"><span>🕐 HHhMM</span><span>📍 Lieu</span><span class="s-free">Gratuit</span></div>
+      <div class="s-acts">
+        <button class="s-cal-btn" onclick="addToGcal(this)">📅 Google Calendar</button>
+        <button class="s-cal-btn" onclick="addToIcal(this)">🍎 Apple / Outlook</button>
+      </div>
+    </div> -->
+
+  </div>
+
+  <div class="rappel">
+    <div>
+      <span class="rappel-lbl">🔔 Ne ratez plus aucune séance</span>
+      <span class="rappel-txt">Ajoutez les séances à votre calendrier ou rejoignez le groupe WhatsApp de rappel.</span>
+    </div>
+    <div class="rappel-btns">
+      <a class="rp-btn rp-gcal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=S%C3%A9ances+JCA+%E2%80%94+Attigny" target="_blank" rel="noopener">📅 Google Calendar</a>
+      <a class="rp-btn rp-wa" href="https://wa.me/33604029009?text=Bonjour%2C+je+voudrais+recevoir+les+rappels+des+s%C3%A9ances+JCA+%F0%9F%99%8F" target="_blank" rel="noopener">💬 Rappel WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="fcol">
+      <a href="index.html" class="f-logo">Jeune Créateur <em>Associé</em></a>
+      <span class="f-sub">Association loi 1901 — Attigny, Ardennes 08</span>
+      <p class="f-desc">Sensibiliser les jeunes aux dangers des réseaux sociaux et faire vivre un média citoyen local dans les Ardennes.</p>
+      <div class="f-socials">
+        <a href="https://tiktok.com/@jca.of" target="_blank" rel="noopener" class="f-soc"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.28 8.28 0 0 0 4.84 1.54V7.04a4.85 4.85 0 0 1-1.07-.35z"/></svg> TikTok</a>
+        <a href="https://youtube.com/@jca.of" target="_blank" rel="noopener" class="f-soc"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.82 12l-6.07 3.52z"/></svg> YouTube</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="f-soc"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <span class="fcol-title">Navigation</span>
+      <nav class="f-nav">
+        <a href="index.html">Accueil</a>
+        <a href="seances.html">Séances gratuites</a>
+        <a href="media.html">Média local</a>
+        <a href="articles.html">Articles</a>
+        <a href="bureau.html">Bureau & membres</a>
+        <a href="contact.html">Contact</a>
+        <a href="mentions.html">Mentions légales</a>
+      </nav>
+    </div>
+    <div class="fcol">
+      <span class="fcol-title">Contact</span>
+      <div class="f-contact-list">
+        <a href="mailto:etangerardot900@gmail.com" class="fci"><span class="fci-icon">✉️</span><span>etangerardot900@gmail.com</span></a>
+        <a href="tel:+33604029009" class="fci"><span class="fci-icon">📞</span><span>06 04 02 90 09</span></a>
+        <div class="fci"><span class="fci-icon">📍</span><span>Attigny (08130), Ardennes</span></div>
+        <a href="mailto:etangerardot900@gmail.com?subject=Demande%20d%27adh%C3%A9sion%20JCA&body=Bonjour%2C%0A%0AJe%20souhaite%20rejoindre%20l%27association%20Jeune%20Cr%C3%A9ateur%20Associ%C3%A9.%0A%0ANom%20%2F%20pr%C3%A9nom%20%3A%20%0AVille%20%3A%20%0A%C3%82ge%20%3A%20%0AMotivation%20%3A%20%0A%0ACordialement" class="f-join">Rejoindre l'asso →</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Jeune Créateur Associé — Association loi 1901</span>
+    <a href="mentions.html">Mentions légales</a>
+  </div>
+</footer>
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+<script>
+
+// MENU MOBILE
+function toggleMenu(){
+  var m=document.getElementById('mob-nav');
+  var h=document.getElementById('hamburger');
+  var open=m.classList.toggle('open');
+  h.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  var m=document.getElementById('mob-nav');
+  var h=document.getElementById('hamburger');
+  if(m)m.classList.remove('open');
+  if(h)h.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('click',function(e){
+  var m=document.getElementById('mob-nav');
+  var h=document.getElementById('hamburger');
+  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))closeMenu();
+});
+
+// BACK TO TOP
+window.addEventListener('scroll',function(){
+  var b=document.getElementById('back-top');
+  if(b)b.classList.toggle('visible',window.scrollY>400);
+},{passive:true});
+
+
+function addToGcal(btn){
+  var s=btn.closest('.seance');
+  if(s&&s.dataset.gcal)window.open(s.dataset.gcal,'_blank');
+}
+function addToIcal(btn){
+  var s=btn.closest('.seance');
+  if(!s||!s.dataset.ical)return;
+  var ical=s.dataset.ical.replace(/&#10;/g,'\n');
+  var a=document.createElement('a');
+  a.href='data:text/calendar;charset=utf8,'+encodeURIComponent(ical);
+  a.download='seance-jca.ics';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+}
+
+</script>
+</body>
+</html>
